@@ -6,7 +6,7 @@ RUN apk add --no-cache avahi
 
 RUN rm /etc/avahi/services/*
 
-ADD mgw.service /etc/avahi/services/mgw.service
+COPY services/ /etc/avahi/services/
 
 ADD entrypoint.sh /opt/entrypoint.sh
 

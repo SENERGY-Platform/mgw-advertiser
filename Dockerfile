@@ -6,9 +6,10 @@ ARG avahi_path=/etc/avahi
 
 ENV MGW_ADVER_PATH=/opt/mgw-advertiser
 ENV AVAHI_CONF_PATH=$avahi_path/avahi-daemon.conf
+ENV AVAHI_SRV_PATH=$avahi_path/services
 
 COPY . $MGW_ADVER_PATH
 
-RUN apk add --no-cache avahi git && cd $MGW_ADVER_PATH && rm $avahi_path/services/* && cp -r services/. $avahi_path/services/ && git log -1 --pretty=format:"commit=%H%ndate=%cd%n" > git_commit && apk del git && rm -r .git .github Dockerfile services
+RUN apk add --no-cache avahi git && cd $MGW_ADVER_PATH && rm $AVAHI_SRV_PATH/* && cp -r services/. $AVAHI_SRV_PATH/ && git log -1 --pretty=format:"commit=%H%ndate=%cd%n" > git_commit && apk del git && rm -r .git .github Dockerfile services
 
 ENTRYPOINT .$MGW_ADVER_PATH/entrypoint.sh

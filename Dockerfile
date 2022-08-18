@@ -1,6 +1,6 @@
 FROM alpine:3
 
-LABEL org.opencontainers.image.source https://github.com/SENERGY-Platform/mgw-discovery
+LABEL org.opencontainers.image.source https://github.com/SENERGY-Platform/mgw-advertiser
 
 RUN apk add --no-cache avahi
 

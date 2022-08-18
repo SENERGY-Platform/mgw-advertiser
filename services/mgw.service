@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone='no'?><!--*-nxml-*-->
 <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
 <service-group>
-  <name>__NAME__</name>
+  <name>__PREFIX__Multi-Gateway</name>
   <service>
     <type>_snrgy._tcp</type>
     <port>8080</port>

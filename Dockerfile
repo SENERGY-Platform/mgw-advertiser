@@ -2,12 +2,13 @@ FROM alpine:3
 
 LABEL org.opencontainers.image.source https://github.com/SENERGY-Platform/mgw-advertiser
 
-RUN apk add --no-cache avahi
+ARG avahi_path=/etc/avahi
 
-RUN rm /etc/avahi/services/*
+ENV MGW_ADVER_PATH=/opt/mgw-advertiser
+ENV AVAHI_CONF_PATH=$avahi_path/avahi-daemon.conf
 
-COPY services/ /etc/avahi/services/
+COPY . $MGW_ADVER_PATH
 
-ADD entrypoint.sh /opt/entrypoint.sh
+RUN apk add --no-cache avahi git && cd $MGW_ADVER_PATH && rm $avahi_path/services/* && cp -r services/. $avahi_path/services/ && git log -1 --pretty=format:"commit=%H%ndate=%cd%n" > git_commit && apk del git && rm -r .git .github Dockerfile services
 
-ENTRYPOINT ["/opt/entrypoint.sh"]
+ENTRYPOINT .$MGW_ADVER_PATH/entrypoint.sh

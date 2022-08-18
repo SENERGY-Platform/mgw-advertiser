@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone='no'?><!--*-nxml-*-->
+<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+<service-group>
+  <name>Mulit-Gateway</name>
+  <service>
+    <type>_snrgy._tcp</type>
+    <port>8080</port>
+    <txt-record value-format="text">path=/a/b</txt-record>
+    <txt-record value-format="text">serial=xyz</txt-record>
+  </service>
+</service-group>
+

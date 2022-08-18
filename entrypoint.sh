@@ -26,11 +26,11 @@ if [ ! -f "$MGW_ADVER_PATH/init" ]; then
 	do
 		if [ -f "$f" ]; then
 			name="${f##*/}"
-			res=$(.$f 2>&1 > /dev/null)
+			err=$(.$f 2>&1 > /dev/null)
 			if [ "$?" -gt "0" ]; then
 				echo "$name -> Err"
-				if [ ! -z "${res}" ]; then
-					echo "'->" $res
+				if [ ! -z "${err}" ]; then
+					echo "'->" $err
 				fi
 			else
 				echo "$name -> Ok"

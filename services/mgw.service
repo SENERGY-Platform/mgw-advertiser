@@ -4,7 +4,7 @@
   <name>__PREFIX__Multi-Gateway</name>
   <service>
     <type>_snrgy._tcp</type>
-    <port>8080</port>
+    <port>8002</port>
     <txt-record value-format="text">serial=__SERIAL__</txt-record>
   </service>
 </service-group>

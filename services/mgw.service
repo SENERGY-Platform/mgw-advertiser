@@ -2,7 +2,7 @@
 <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
 <service-group>
   <name>__PREFIX__Multi-Gateway</name>
-  <service>
+  <service protocol="ipv4">
     <type>_snrgy._tcp</type>
     <port>8002</port>
     <txt-record value-format="text">serial=__SERIAL__</txt-record>

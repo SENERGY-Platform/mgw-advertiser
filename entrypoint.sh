@@ -42,5 +42,5 @@ fi
 
 echo "starting avahi-daemon ..."
 
-exec avahi-daemon -k
+exec avahi-daemon
 
